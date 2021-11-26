@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 @Service
@@ -57,13 +59,42 @@ public class TransactionService {
     public List<Transaction> getTransactions() {
         try {
             List<Transaction> transactions =  transactionRepository.findAll();
-//            for (Withdrawal w : transactions){
-//                chechWithdrawal(w);
 //            }
         }catch (WithdrawalException e){
             System.out.println(e.toString());
         }
         return transactionRepository.findAll();
+    }
+
+    public String evaluate(String ip, String akcia) {
+        List<Transaction> transactions = new ArrayList<Transaction>();
+        try {
+             transactions =  transactionRepository.findAll();
+        }catch (WithdrawalException e){
+            System.out.println(e.toString());
+        }
+
+
+        Transaction transaction = new Transaction(ip,akcia, new Date());
+        transactionRepository.save(transaction);
+
+        return "schvalene";
+    }
+
+    public String evaluate(Transaction transaction) {
+        List<Transaction> transactions = new ArrayList<Transaction>();
+        try {
+            transactions =  transactionRepository.findAll();
+        }catch (WithdrawalException e){
+            System.out.println(e.toString());
+        }
+
+
+        transaction.setDate(new Date());
+        transactionRepository.save(transaction);
+
+        return "schvalene";
+
     }
 
 //    public ResponseEntity<?> updateWithdrawal(String id, Withdrawal withdrawal) {

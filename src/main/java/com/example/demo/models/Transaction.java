@@ -2,8 +2,19 @@ package com.example.demo.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Transaction {
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    Date date;
     String lastIP;
 
     public String getLastIP() {
@@ -22,9 +33,10 @@ public class Transaction {
         this.lastTransaction = lastTransaction;
     }
 
-    public Transaction(String lastIP, String lastTransaction) {
+    public Transaction(String lastIP, String lastTransaction, Date date) {
         this.lastIP = lastIP;
         this.lastTransaction = lastTransaction;
+        this.date = date;
     }
 
     String lastTransaction;

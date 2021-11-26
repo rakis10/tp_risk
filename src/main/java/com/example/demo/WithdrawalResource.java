@@ -31,16 +31,20 @@ public class WithdrawalResource {
         this.userRepository = userRepository;
 
     }
-
-    @GetMapping("/")
-    public List<Transaction> getAll(){
-        return transactionService.getTransactions();
+    //@PathVariable("ip") String ip, @PathVariable("action") String action
+    @GetMapping("/{ip}&{action}")
+    public String evaluate(@PathVariable("ip") String ip, @PathVariable("action") String action){
+        return transactionService.evaluate(ip,action);
     }
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<?> getSingleTransaction(@PathVariable("id") String id)
+    @GetMapping("/baby")
+    public String baby(){
+        return "connected";
+    }
+
+    @GetMapping(value = "/all")
+    public List<Transaction> getAll()
     {
-        //return  id;
-        return withdrawalService.getWithdrawal(id);
+        return transactionService.getTransactions();
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> deleteWithdrawal(@PathVariable("id") String id ){
