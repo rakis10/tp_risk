@@ -7,5 +7,11 @@
       <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
       <jdbc-url>mongodb://localhost:27017</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="jdbc:mongodb+srv://cluster0.cl947.mongodb.net:27017:27017/test" uuid="ff0d59a7-6926-4601-9843-af2faaddc020">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>jdbc:mongodb+srv://cluster0.cl947.mongodb.net:27017:27017/test</jdbc-url>
+    </data-source>
   </component>
 </project>
