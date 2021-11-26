@@ -46,20 +46,20 @@ public class WithdrawalResource {
     {
         return transactionService.getTransactions();
     }
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deleteWithdrawal(@PathVariable("id") String id ){
-        return withdrawalService.deleteWithdrawal(id);
-    }
-
-    @PostMapping("/")
-    public ResponseEntity<?> addWithdrawal(@RequestBody Withdrawal withdrawal){
-        return withdrawalService.createWithdrawal(withdrawal);
-    }
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<?> updateWithdrawal(@PathVariable("id") String id, @RequestBody Withdrawal withdrawal){
-        return withdrawalService.updateWithdrawal( id,withdrawal);
-    }
-
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity<?> deleteWithdrawal(@PathVariable("id") String id ){
+//        return withdrawalService.deleteWithdrawal(id);
+//    }
+//
+//    @PostMapping("/")
+//    public ResponseEntity<?> addWithdrawal(@RequestBody Withdrawal withdrawal){
+//        return withdrawalService.createWithdrawal(withdrawal);
+//    }
+//    @PutMapping(value = "/{id}")
+//    public ResponseEntity<?> updateWithdrawal(@PathVariable("id") String id, @RequestBody Withdrawal withdrawal){
+//        return withdrawalService.updateWithdrawal( id,withdrawal);
+//    }
+//
 
 
 

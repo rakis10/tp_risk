@@ -70,7 +70,7 @@ public class TransactionService {
         List<Transaction> transactions = new ArrayList<Transaction>();
         try {
              transactions =  transactionRepository.findAll();
-        }catch (WithdrawalException e){
+        }catch (Exception e){
             System.out.println(e.toString());
         }
 
